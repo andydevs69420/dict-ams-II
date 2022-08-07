@@ -4,7 +4,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-clip: content-box;
-  overflow-y: auto !important;
+  overflow-y: auto;
 }
 
 #login__overlay-wrapper {
@@ -12,12 +12,21 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 @media screen and (min-width: 768px) {
   #login__overlay-wrapper {
     width: 80%;
-    height: auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #login__overlay-wrapper {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #login__overlay-wrapper {
+    width: 55%;
   }
 }
 
@@ -64,7 +73,6 @@
 
 #login__overlay-wrapper > #login__content-area {
   z-index: 0;
-  overflow-y: auto !important;
 }
 
 #login__dict-icon {

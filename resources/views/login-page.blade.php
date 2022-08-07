@@ -11,16 +11,16 @@
 @section("content")
     <main id="login__main" class="d-block w-100 h-100">
 
-        <div id="login__overlay-wrapper" class="d-block position-relative">
+        <div id="login__overlay-wrapper" class="d-block position-relative my-5">
 
             <div id="login__back-drop-bg" class="d-block position-absolute"></div>
             <div id="login__back-drop-fg" class="d-block position-absolute shadow"></div>
 
-            <div id="login__content-area" class="d-block d-md-flex flex-column align-items-center">
+            <div id="login__content-area" class="d-block">
                 <div class="container-fluid px-0 px-md-1">
-                    <div class="row d-flex justify-content-center py-0 py-md-4">
+                    <div class="row d-flex justify-content-center">
                         <div class="col-12 col-md-6 text-center">
-                            <div class="container-fluid px-0 py-5 py-md-2">
+                            <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-12 text-start">
                                         <div class="d-flex flex-row flex-nowrap align-items-center mb-5" role="text">
