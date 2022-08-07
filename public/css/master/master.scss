@@ -1,0 +1,26 @@
+@import "../sizing";
+
+* {
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+$background: #eeeeee;
+
+html
+{ background-color: $background;}
+
+body {
+
+    width: 100vw;
+    min-width: 280px;
+
+    height: 100vh;
+
+    @include sm
+    { min-width: 280px; }
+
+    @include md
+    { min-width: 768px; }
+
+}
