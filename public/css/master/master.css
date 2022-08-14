@@ -1,6 +1,7 @@
 * {
   margin: 0 !important;
-  box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
 }
 
 html {
@@ -12,13 +13,16 @@ body {
   min-width: 280px;
   height: 100vh;
 }
+
 @media screen and (min-width: 576px) {
   body {
     min-width: 280px;
   }
 }
+
 @media screen and (min-width: 768px) {
   body {
     min-width: 768px;
   }
-}/*# sourceMappingURL=master.css.map */
+}
+/*# sourceMappingURL=master.css.map */

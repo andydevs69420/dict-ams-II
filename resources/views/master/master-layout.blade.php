@@ -32,6 +32,8 @@
 
         {{-- JS Bundle --}}
         <script type="text/javascript" src="{{ asset('build/assets/app.43df0062.js') }}"></script>
+        @section("javascript")
+        @show
 
     </body>
 </html>

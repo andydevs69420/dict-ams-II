@@ -1,36 +1,57 @@
 @import "../sizing";
 
+
 #login__main
-{
-    background-image: url("../../images/293799812_407191518112149_1311549228197858216_n.png");
-    background-position: center !important;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-clip: content-box;
-    overflow-y: auto;
-}
+{ overflow-y: auto; }
+
+#login__main > canvas
+{ vertical-align:bottom; }
 
 
 #login__overlay-wrapper
 {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
     width: 100%;
-    height: auto;
     // background-color: yellow;
 
     @include md {
-        width: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 50%;
+        height: auto;
+        // 390px
+    }
+
+    @include lg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 39%;
+        height: auto;
     }
 
     @include xl {
-        width: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 32%;
+        height: auto;
     }
 
-    @include xl {
-        width: 55%;
+    @include xxl {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 28%;
+        height: auto;
     }
 }
 
@@ -44,68 +65,113 @@
     overflow: hidden;
 
     @include md {
-        border-radius: 1rem;
+        border-radius: .75rem;
     }
 
     @include lg {
-        border-radius: 1rem;
+        border-radius: .75rem;
     }
 
     @include xl {
-        border-radius: 1rem;
+        border-radius: .75rem;
     }
 }
 
-$ice-cold-white: rgba(255, 254, 254, 0.3);
+#login__svg-design-0,
+#login__svg-design-1
+{
+    position: absolute;
+    bottom: 0;
+
+    @include md {
+        border-bottom-left-radius: .75rem;
+        border-bottom-right-radius: .75rem;
+    }
+
+    @include lg {
+        border-bottom-left-radius: .75rem;
+        border-bottom-right-radius: .75rem;
+    }
+
+    @include xl {
+        border-bottom-left-radius: .75rem;
+        border-bottom-right-radius: .75rem;
+    }
+}
+
+
+
+$ice-cold-white: rgba(255, 254, 254, 0.2);
 
 #login__overlay-wrapper >
 #login__back-drop-bg
 {
-    z-index: -2;
-    filter: blur(20px);
+    filter: blur(10px);
     background-color: $ice-cold-white;
+    z-index: 1;
 }
 
 #login__overlay-wrapper >
 #login__back-drop-fg
 {
-    z-index: -1;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
+    z-index: 2;
 }
+
+
 
 
 #login__overlay-wrapper >
 #login__content-area
 {
-    z-index: 0;
+    height: 100vh !important;
+
+    z-index: 100;
+    overflow-y: auto !important;
+
+    @include md
+    { height: auto !important; }
+
+    @include lg
+    { height: auto !important; }
+
+    @include xl
+    { height: auto !important; }
+
+    @include xxl
+    { height: auto !important; }
 }
 
 
 #login__dict-icon
 {
-    width: 4rem;
+    width: 3.4rem;
     border-radius: 25%;
+}
+
+#login__vr
+{ width: 2px; }
+
+#login__dict-brand
+{
+    // font-family: Quicksand !important;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+#login__dict-model{
+    // font-family: Quicksand !important;
+    font-weight: 600;
+    font-size: .8rem;
 }
 
 #login__signin-label
 {
-    font-family: Quicksand !important;
-    font-weight: 800;
+    // font-family: Quicksand !important;
+    font-weight: 400;
     font-size: 1.2rem;
 }
 
-#login__dict-brand
-{
-    font-family: Quicksand !important;
-    font-weight: 800;
-    font-size: 1.7rem;
-}
-
-#login__dict-model{
-    font-family: Quicksand !important;
-    font-weight: 800;
-    font-size: .8rem;
-}
 
 
 .input-group,
@@ -148,3 +214,20 @@ button
     border-radius: inherit !important;
     border: none;
 }
+
+.login__social-icon-wrapper
+{
+    position: relative;
+    padding-top: 2.5rem;
+    width: 2.5rem;
+    background-color: white;
+}
+
+.login__social-icon-wrapper >
+.login__social-icon
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.9rem; }
