@@ -1,0 +1,25 @@
+/*
+ *   Copyright (c) 2022
+ *   All rights reserved.
+ */
+/*
+ *   Copyright (c) 2022
+ *   All rights reserved.
+ */
+html {
+  width: auto;
+  height: auto;
+  background-color: #eeeeee;
+}
+
+body {
+  width: 100vw;
+  min-width: 280px;
+  height: 100vh;
+  min-height: 560px;
+  background-color: transparent;
+}
+
+#root {
+  overflow: auto hidden !important;
+}/*# sourceMappingURL=app.css.map */

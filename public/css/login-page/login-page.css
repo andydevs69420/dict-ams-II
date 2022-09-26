@@ -9,88 +9,73 @@
 #login__overlay-wrapper {
   width: 100%;
 }
-
 @media screen and (min-width: 768px) {
   #login__overlay-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     width: 50%;
     height: auto;
   }
 }
-
 @media screen and (min-width: 992px) {
   #login__overlay-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     width: 39%;
     height: auto;
   }
 }
-
 @media screen and (min-width: 1200px) {
   #login__overlay-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     width: 32%;
     height: auto;
   }
 }
-
 @media screen and (min-width: 1400px) {
   #login__overlay-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     width: 28%;
     height: auto;
   }
 }
 
-#login__overlay-wrapper >
-#login__back-drop-bg,
+#login__overlay-wrapper > #login__back-drop-bg,
 #login__back-drop-fg,
 #login__content-area {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-
 @media screen and (min-width: 768px) {
-  #login__overlay-wrapper >
-#login__back-drop-bg,
-  #login__back-drop-fg,
-  #login__content-area {
-    border-radius: .75rem;
+  #login__overlay-wrapper > #login__back-drop-bg,
+#login__back-drop-fg,
+#login__content-area {
+    border-radius: 0.75rem;
   }
 }
-
 @media screen and (min-width: 992px) {
-  #login__overlay-wrapper >
-#login__back-drop-bg,
-  #login__back-drop-fg,
-  #login__content-area {
-    border-radius: .75rem;
+  #login__overlay-wrapper > #login__back-drop-bg,
+#login__back-drop-fg,
+#login__content-area {
+    border-radius: 0.75rem;
   }
 }
-
 @media screen and (min-width: 1200px) {
-  #login__overlay-wrapper >
-#login__back-drop-bg,
-  #login__back-drop-fg,
-  #login__content-area {
-    border-radius: .75rem;
+  #login__overlay-wrapper > #login__back-drop-bg,
+#login__back-drop-fg,
+#login__content-area {
+    border-radius: 0.75rem;
   }
 }
 
@@ -99,77 +84,62 @@
   position: absolute;
   bottom: 0;
 }
-
 @media screen and (min-width: 768px) {
   #login__svg-design-0,
-  #login__svg-design-1 {
-    border-bottom-left-radius: .75rem;
-    border-bottom-right-radius: .75rem;
+#login__svg-design-1 {
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
   }
 }
-
 @media screen and (min-width: 992px) {
   #login__svg-design-0,
-  #login__svg-design-1 {
-    border-bottom-left-radius: .75rem;
-    border-bottom-right-radius: .75rem;
+#login__svg-design-1 {
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
   }
 }
-
 @media screen and (min-width: 1200px) {
   #login__svg-design-0,
-  #login__svg-design-1 {
-    border-bottom-left-radius: .75rem;
-    border-bottom-right-radius: .75rem;
+#login__svg-design-1 {
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
   }
 }
 
-#login__overlay-wrapper >
-#login__back-drop-bg {
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
+#login__overlay-wrapper > #login__back-drop-bg {
+  filter: blur(10px);
   background-color: rgba(255, 254, 254, 0.2);
   z-index: 1;
 }
 
-#login__overlay-wrapper >
-#login__back-drop-fg {
+#login__overlay-wrapper > #login__back-drop-fg {
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
   z-index: 2;
 }
 
-#login__overlay-wrapper >
-#login__content-area {
+#login__overlay-wrapper > #login__content-area {
   height: 100vh !important;
   z-index: 100;
   overflow-y: auto !important;
 }
-
 @media screen and (min-width: 768px) {
-  #login__overlay-wrapper >
-#login__content-area {
+  #login__overlay-wrapper > #login__content-area {
     height: auto !important;
   }
 }
-
 @media screen and (min-width: 992px) {
-  #login__overlay-wrapper >
-#login__content-area {
+  #login__overlay-wrapper > #login__content-area {
     height: auto !important;
   }
 }
-
 @media screen and (min-width: 1200px) {
-  #login__overlay-wrapper >
-#login__content-area {
+  #login__overlay-wrapper > #login__content-area {
     height: auto !important;
   }
 }
-
 @media screen and (min-width: 1400px) {
-  #login__overlay-wrapper >
-#login__content-area {
+  #login__overlay-wrapper > #login__content-area {
     height: auto !important;
   }
 }
@@ -190,7 +160,7 @@
 
 #login__dict-model {
   font-weight: 600;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 #login__signin-label {
@@ -202,21 +172,18 @@
 #login__btn-wrapper {
   border-radius: 50rem;
 }
-
 @media screen and (min-width: 768px) {
   .input-group,
-  #login__btn-wrapper {
+#login__btn-wrapper {
     border-radius: 0.375rem;
   }
 }
 
-#login__btn-wrapper >
-button {
+#login__btn-wrapper > button {
   border-radius: inherit;
 }
 
-.input-group >
-.input-group-text {
+.input-group > .input-group-text {
   z-index: 5;
   min-width: 2.6em;
   min-height: 100%;
@@ -226,8 +193,7 @@ button {
   background-color: transparent !important;
 }
 
-.input-group >
-.form-control {
+.input-group > .form-control {
   z-index: 0;
   padding-left: 2.6em;
   border-radius: inherit !important;
@@ -241,13 +207,10 @@ button {
   background-color: white;
 }
 
-.login__social-icon-wrapper >
-.login__social-icon {
+.login__social-icon-wrapper > .login__social-icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 1.9rem;
-}
-/*# sourceMappingURL=login-page.css.map */
+}/*# sourceMappingURL=login-page.css.map */
