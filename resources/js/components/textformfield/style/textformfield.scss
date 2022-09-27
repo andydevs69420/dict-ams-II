@@ -1,0 +1,38 @@
+/*
+ *   Copyright (c) 2022
+ *   All rights reserved.
+ */
+
+$icon-width: 2.5rem;
+
+.textformfield_wrapper
+{
+    &:has(span.textformfield_icon) {
+        & > .textformfield {
+            padding-left: $icon-width;
+        }
+    }
+}
+
+.textformfield_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2 !important;
+    padding: 0 !important;
+    min-width: $icon-width;
+    min-height: 100%;
+    background-color: transparent;
+}
+
+.textformfield {
+    border-radius: inherit !important;
+    background-color: transparent;
+    z-index: 1 !important;
+    &:focus {
+        border-color: transparent !important;
+    }
+}

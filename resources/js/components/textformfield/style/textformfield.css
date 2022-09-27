@@ -1,0 +1,30 @@
+/*
+ *   Copyright (c) 2022
+ *   All rights reserved.
+ */
+.textformfield_wrapper:has(span.textformfield_icon) > .textformfield {
+  padding-left: 2.5rem;
+}
+
+.textformfield_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2 !important;
+  padding: 0 !important;
+  min-width: 2.5rem;
+  min-height: 100%;
+  background-color: transparent;
+}
+
+.textformfield {
+  border-radius: inherit !important;
+  background-color: transparent;
+  z-index: 1 !important;
+}
+.textformfield:focus {
+  border-color: transparent !important;
+}/*# sourceMappingURL=textformfield.css.map */

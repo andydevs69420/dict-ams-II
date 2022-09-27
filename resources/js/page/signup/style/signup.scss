@@ -1,0 +1,41 @@
+/*
+ *   Copyright (c) 2022
+ *   All rights reserved.
+ */
+
+@import "../../../global/sass/primary";
+
+
+.signup__card {
+    width: 440px;
+}
+
+#signup__header {
+    width: 100%;
+    height: 100px;
+    background-color: $BLACK;
+    & > h2 {
+        font-family: Helvetica,sans-serif !important;
+        color: $LIGHT !important;
+    }
+}
+
+// sm below
+@media screen and (max-width: 576px) {
+    #signup__header {
+        height: auto;
+        background-color: transparent;
+        & > h2 {
+            color: $BLACK !important;
+            border-left: 5px solid $BLACK !important;
+        }
+    }
+    .signup__card {
+        width: 100%;
+        height: 100%;
+
+        & > .signup__card-body {
+            overflow-x: auto !important;
+        }
+    }
+}

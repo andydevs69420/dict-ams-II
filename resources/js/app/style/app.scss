@@ -12,13 +12,11 @@ html {
 }
 
 body {
-    width: 100vw;
+    width: 100vw !important;
     min-width: 280px;
-    height: 100vh;
+    height: 100vh !important;
     min-height: 560px;
+    overflow: hidden auto !important;
     background-color: transparent;
 }
 
-#root {
-    overflow: auto hidden !important;
-}

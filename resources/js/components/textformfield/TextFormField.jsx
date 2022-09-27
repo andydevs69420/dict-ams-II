@@ -3,13 +3,41 @@
  *   All rights reserved.
  */
 import React, { useEffect } from "react";
+import "./style/textformfield.css";
 
+
+/**
+ * TextFormField
+ * @param {String} id input id
+ * @param {JSX.Element} icon input icon
+ * @param {Number} elevation button elevation
+ * @param {String} type input type ["text"|"email"|"password"|etc]
+ * @param {String} title input title
+ * @param {String} name input name
+ * @param {String} size input size variant ["sm"|"md"|"lg"]
+ * @param {Number} borderWidth border around the input ex: {borderWidth}px solid color
+ * @param {String} borderColor border color for input ex: {borderWidth}px solid {borderColor}
+ * @param {String} placeholder input placeholder
+ * @param {Function} onChange default onchange callback
+ * @returns JSXElement
+ **/
 const TextFormField = ({
+    id,
+    icon=(<i className="bi bi-file-earmark"></i>),
+    elevation=0,
+    type="text",
+    title,
+    name,
+    size,
+    borderWidth=1,
+    borderColor="transparent",
     placeholder="form field",
-    elevation=0
+    fillColor="inherit",
+    required,
+    onChange,
 }) => {
 
-    var elevate = "";
+    let elevate = "", form_size = "";
     switch (elevation)
     {
         case 1:
@@ -23,11 +51,30 @@ const TextFormField = ({
             break;
     }
 
-    console.log(elevate, elevation);
+    switch(size)
+    {
+        case "sm":
+        case "SM":
+            form_size = " form-control-sm";
+            break;
+        case "md":
+        case "MD":
+            form_size = "";
+            break;
+        case "lg":
+        case "LG":
+            form_size = " form-control-lg";
+            break;
+    }
 
     return (
-        <div className={"input-group border-0 rounded " + elevate}>
-            <input className="form-control border-0" placeholder={placeholder}/>
+        <div className={"textformfield_wrapper input-group position-relative rounded " + elevate} style={{
+            backgroundColor: fillColor
+        }}>
+            <span className="textformfield_icon input-group-text text-muted text-center opacity-75 border-0">{icon}</span>
+            <input id={id} className={"textformfield form-control" + form_size} type={type} title={title} name={name} onChange={onChange} placeholder={placeholder} style={{
+                border: `${borderWidth}px solid ${borderColor}`
+            }} required={required}/>
         </div>
     );
 }

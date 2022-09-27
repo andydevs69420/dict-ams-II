@@ -3,7 +3,7 @@
  *   All rights reserved.
  */
 
- @import "../../../global/sass/primary";
+@import "../../../global/sass/primary";
 
 #signin__bg {
     background: url("../../../assets/images/dict.png");
@@ -18,18 +18,21 @@
     backdrop-filter: blur(3px);
 }
 
+$expanded-bg: #ffffff;
 #signin__expanded-panel {
     display: block;
     position: relative;
     width: 360px;
     height: 100%;
     z-index: 1;
-    background-color: #ffffff;
+    background-color: $expanded-bg;
 }
 
 #signin__label {
+    font-family: Helvetica,sans-serif !important;
     border-left: 5px solid $BLACK !important;
 }
+
 
 // sm below
 @media screen and(max-width: 576px) {
