@@ -12,19 +12,30 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 
 /*
-| Page
+ | Page
 */
 
 import Signin from "../page/signin/Signin";
 import Signup from "../page/signup/Signup";
 
+/*
+ | Roles
+ */
+import Requisitioner from "../roles/requisitioner/Requisitioner";
+
 const App = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<h1 className="display-1">INDEX</h1>}></Route>
-                <Route path="/signin" element={<Signin />}></Route>
-                <Route path="/signup" element={<Signup />}></Route>
+                <Route path="/" index element={<h1 className="display-1">INDEX</h1>} />
+                <Route path="/signin" element={<Signin />} />
+                <Route path="/signup" element={<Signup />} />
+
+                {/* requissitioner role */}
+                <Route path="/requisitioner" element={<Requisitioner />}>
+                    <Route path="dashboard" element={<h1>Damn!</h1>}/>
+                </Route>
+
             </Routes>
         </Router>
     );

@@ -1,0 +1,30 @@
+/*
+ *   Copyright (c) 2022
+ *   All rights reserved.
+ */
+.dropdown_wrapper:has(span.dropdown_icon) > .dropdown {
+  padding-left: 2.5rem;
+}
+
+.dropdown_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2 !important;
+  padding: 0 !important;
+  min-width: 2.5rem;
+  min-height: 100%;
+  background-color: transparent;
+}
+
+.dropdown {
+  border-radius: inherit !important;
+  background-color: transparent;
+  z-index: 1 !important;
+}
+.dropdown:focus {
+  border-color: transparent !important;
+}/*# sourceMappingURL=dropdown.css.map */

@@ -1,0 +1,24 @@
+/*
+ *   Copyright (c) 2022 andydevs69420
+ *   All rights reserved.
+ */
+.sidebar, .sidebar__sidebar-collapse {
+  height: 100% !important;
+}
+
+.sidebar__nav {
+  width: 290px;
+  height: 100% !important;
+  overflow: hidden auto;
+}
+
+@media screen and (max-width: 576px) {
+  .sidebar {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+  }
+  .sidebar__nav {
+    width: auto;
+  }
+}/*# sourceMappingURL=sidebar.css.map */
