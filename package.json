@@ -14,6 +14,7 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "react": "^17.0.2",
+        "react-scripts": "5.0.1",
         "react-dom": "^17.0.2",
         "sass": "^1.32.11",
         "vite": "^3.0.0"
@@ -25,6 +26,9 @@
         "jquery": "^3.6.0",
         "laravel-mix": "^6.0.49",
         "react-router-dom": "^6.4.1",
-        "sass": "^1.54.2"
+        "react-scripts": "^5.0.1",
+        "react-tsparticles": "^2.3.2",
+        "sass": "^1.54.2",
+        "tsparticles": "^2.3.2"
     }
 }

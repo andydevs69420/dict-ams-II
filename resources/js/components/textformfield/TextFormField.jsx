@@ -3,7 +3,7 @@
  *   All rights reserved.
  */
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./style/textformfield.css";
 
 
@@ -70,14 +70,18 @@ const TextFormField = ({
             break;
     }
 
+    function onTextUpdate(e) {
+        textUpdate(e.target.value);
+    }
+
     return (
         <div className={"textformfield_wrapper input-group position-relative rounded " + elevate} style={{
             backgroundColor: fillColor
         }}>
             { icon && <span className="textformfield_icon input-group-text text-muted text-center opacity-75 border-0">{icon}</span> }
-            <input id={id} className={"textformfield form-control" + form_size} type={type} title={title} name={name} onChange={onChange} placeholder={placeholder} style={{
+            <input id={id} className={"textformfield form-control" + form_size} type={type} title={title} name={name} placeholder={placeholder} style={{
                 border: `${borderWidth}px solid ${borderColor}`
-            }} value={value} required={required}/>
+            }} onChange={onChange} value={value} required={required}/>
         </div>
     );
 }

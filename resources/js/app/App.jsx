@@ -22,6 +22,7 @@ import Signup from "../page/signup/Signup";
  | Roles
  */
 import Requisitioner from "../roles/requisitioner/Requisitioner";
+import RequisitionerDashboard from "../roles/requisitioner/tabs/dashboard/RequisitionerDashboard";
 
 const App = () => {
     return (
@@ -33,7 +34,9 @@ const App = () => {
 
                 {/* requissitioner role */}
                 <Route path="/requisitioner" element={<Requisitioner />}>
-                    <Route path="dashboard" element={<h1>Damn!</h1>}/>
+
+                    <Route path="" index element={<RequisitionerDashboard />}/>
+
                 </Route>
 
             </Routes>

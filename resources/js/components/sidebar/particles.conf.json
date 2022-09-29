@@ -1,5 +1,10 @@
 {
+  "fullScreen": {
+    "enable": false,
+    "zIndex": -1
+  },
   "particles": {
+    "options":{"fullscreen":{"enable":false,"zIndex":0}},
     "number": {
       "value": 120,
       "density": {

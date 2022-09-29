@@ -1,0 +1,16 @@
+/*
+ *   Copyright (c) 2022 andydevs69420
+ *   All rights reserved.
+ */
+#requisitioner-dashboard {
+  padding: calc(53px + 1rem) 1rem 1rem 1rem;
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden auto !important;
+}
+
+@media screen and (max-width: 576px) {
+  #requisitioner-dashboard {
+    padding: calc(53px + 0.5rem) 0.5rem 0.5rem 0.5rem;
+  }
+}/*# sourceMappingURL=requisitionerdashboard.css.map */

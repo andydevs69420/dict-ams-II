@@ -1,0 +1,48 @@
+/*
+ *   Copyright (c) 2022 andydevs69420
+ *   All rights reserved.
+ */
+.dashboardtile {
+  margin: calc(0.275rem + 17.5px) 0.275rem 0.275rem 0.275rem;
+  width: 100% !important;
+  height: auto;
+  border: 2px solid #ffffff;
+}
+
+.dashboardtile__resizer {
+  padding-top: 45%;
+  width: 100%;
+}
+
+.dashboardtile__icon {
+  position: absolute;
+  top: -17.5px;
+  left: 20px;
+  width: 35px;
+  height: 35px;
+}
+.dashboardtile__icon > * {
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .dashboardtile {
+    width: calc((100% - 1.65rem - 12px) / 2) !important;
+  }
+}
+@media screen and (min-width: 992px) {
+  .dashboardtile {
+    width: calc((100% - 1.65rem - 12px) / 3) !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .dashboardtile {
+    width: calc((100% - 1.65rem - 12px) / 4) !important;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .dashboardtile {
+    width: calc((100% - 1.65rem - 12px) / 4) !important;
+    max-width: 276.5px !important;
+  }
+}/*# sourceMappingURL=dashboardtile.css.map */

@@ -1,0 +1,72 @@
+/*
+ *   Copyright (c) 2022 andydevs69420
+ *   All rights reserved.
+ */
+
+
+$default-margin: 0.275rem;
+
+// tile-width = (100% - (default-margin * 6)) - (border(2px) * 6)
+$tile-width: calc( calc( 100% - 1.65rem ) - 12px );
+
+$tile-border: #ffffff;
+
+.dashboardtile  {
+    margin: calc( $default-margin + 17.5px) $default-margin $default-margin $default-margin;
+
+    width: 100% !important;
+    height: auto;
+    border: 2px solid $tile-border;
+}
+
+.dashboardtile__resizer {
+    padding-top: 45%;
+    width: 100%;
+}
+
+
+.dashboardtile__icon {
+    position: absolute;
+    top: -17.5px;
+    left: 20px;
+    width: 35px;
+    height: 35px;
+    & > * {
+        font-size: 1.2rem;
+    }
+}
+
+// md and above
+@media screen and (min-width: 768px) {
+    .dashboardtile  {
+        width: calc($tile-width / 2) !important;
+    }
+}
+
+
+// lg and above
+@media screen and (min-width: 992px) {
+    .dashboardtile  {
+        width: calc($tile-width / 3) !important;
+    }
+}
+
+// xl and above
+@media screen and (min-width: 1200px) {
+    .dashboardtile  {
+        width: calc($tile-width / 4) !important;
+    }
+}
+
+
+$limit-width: calc( 1366px - 260px ) / 4;
+
+// xxl and above
+@media screen and (min-width: 1400px) {
+    .dashboardtile  {
+        width: calc($tile-width / 4) !important;
+        max-width: $limit-width !important;
+    }
+}
+
+

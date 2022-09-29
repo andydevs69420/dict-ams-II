@@ -4,7 +4,10 @@
  */
 
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import AppBar from "../../components/appbar/AppBar";
+
 
 /*
  | Other component
@@ -15,20 +18,37 @@ import Sidebar from "../../components/sidebar/Sidebar";
 
 const Requisitioner = () => {
     return (
-        <div className="d-flex position-relative w-100 h-100">
-            {/* navigation | drawer */}
-            <Sidebar id="requisitioner__sidebar">
-                <button
-                    className="btn btn-close"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#requisitioner__sidebar"></button>
+        <div className="d-block position-relative w-100 h-100">
 
-            </Sidebar>
+            {/* appbar */}
+            <AppBar sidebarID="requisitioner__sidebar" username="Andy404" />
 
-            {/* content */}
-            <div className="d-block w-100 h-100">
-                <Outlet />
+            <div className="d-flex w-100 h-100">
+
+                {/* navigation | drawer */}
+                <Sidebar
+                    id="requisitioner__sidebar"
+                    items={{
+                        "Create Form": {
+                            icon: <i className="bi bi-file-plus-fill text-primary"></i>,
+                            link: ["Form builder"]
+                        },
+                        "Request": {
+                            icon: <i className="bi bi-list text-primary"></i>,
+                            link: ["Request list"]
+                        },
+                        "Account": {
+                            icon: <i className="bi bi-person-fill text-primary"></i>,
+                            link: ["Account settings"]
+                        },
+                    }} />
+
+                {/* content */}
+                <div id="requisitioner__content-area" className="d-block w-100 h-100">
+                    <Outlet />
+                </div>
             </div>
+
         </div>
     );
 }

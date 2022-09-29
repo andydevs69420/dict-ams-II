@@ -1,0 +1,25 @@
+/*
+ *   Copyright (c) 2022 andydevs69420
+ *   All rights reserved.
+ */
+
+
+$appbar-height: 53px;
+$padding: 1rem;
+
+#requisitioner-dashboard {
+    padding: calc($appbar-height + $padding) $padding $padding $padding;
+    width: 100%;
+    max-height: 100%;
+    overflow: hidden auto !important;
+}
+
+
+
+// sm and below
+@media screen and (max-width: 576px) {
+    $padding: 0.5rem;
+    #requisitioner-dashboard {
+        padding: calc($appbar-height + $padding) $padding $padding $padding;
+    }
+}
