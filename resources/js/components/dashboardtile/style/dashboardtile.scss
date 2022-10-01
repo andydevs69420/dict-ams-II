@@ -6,22 +6,24 @@
 
 $default-margin: 0.275rem;
 
-// tile-width = (100% - (default-margin * 6)) - (border(2px) * 6)
+// tile-width = (100% - (default-margin * 2)) - (border(2px) * 6)
 $tile-width: calc( calc( 100% - 1.65rem ) - 12px );
-
+$limit-width: calc( 1366px - 260px ) / 4;
 $tile-border: #ffffff;
 
 .dashboardtile  {
     margin: calc( $default-margin + 17.5px) $default-margin $default-margin $default-margin;
 
     width: 100% !important;
+
     height: auto;
     border: 2px solid $tile-border;
 }
 
 .dashboardtile__resizer {
-    padding-top: 45%;
+    padding-top: 50%;
     width: 100%;
+    overflow: hidden;
 }
 
 
@@ -36,8 +38,32 @@ $tile-border: #ffffff;
     }
 }
 
+.dashboardtile__label {
+    font-size: 1rem !important;
+}
+
+
+// sm and above
+@media screen and (min-width: 576px) {
+    .dashboardtile  {
+        width: 100% !important;
+    }
+
+    .dashboardtile__data {
+        font-size: 1.8rem !important;
+    }
+}
+
+
 // md and above
 @media screen and (min-width: 768px) {
+    .dashboardtile  {
+        width: calc($tile-width / 1) !important;
+    }
+}
+
+// md-mid
+@media screen and (min-width: 816px) {
     .dashboardtile  {
         width: calc($tile-width / 2) !important;
     }
@@ -49,7 +75,12 @@ $tile-border: #ffffff;
     .dashboardtile  {
         width: calc($tile-width / 3) !important;
     }
+
+    .dashboardtile__data {
+        font-size: 1.3rem !important;
+    }
 }
+
 
 // xl and above
 @media screen and (min-width: 1200px) {
@@ -57,9 +88,6 @@ $tile-border: #ffffff;
         width: calc($tile-width / 4) !important;
     }
 }
-
-
-$limit-width: calc( 1366px - 260px ) / 4;
 
 // xxl and above
 @media screen and (min-width: 1400px) {

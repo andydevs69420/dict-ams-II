@@ -10,8 +10,9 @@
 }
 
 .dashboardtile__resizer {
-  padding-top: 45%;
+  padding-top: 50%;
   width: 100%;
+  overflow: hidden;
 }
 
 .dashboardtile__icon {
@@ -25,7 +26,24 @@
   font-size: 1.2rem;
 }
 
+.dashboardtile__label {
+  font-size: 1rem !important;
+}
+
+@media screen and (min-width: 576px) {
+  .dashboardtile {
+    width: 100% !important;
+  }
+  .dashboardtile__data {
+    font-size: 1.8rem !important;
+  }
+}
 @media screen and (min-width: 768px) {
+  .dashboardtile {
+    width: calc((100% - 1.65rem - 12px) / 1) !important;
+  }
+}
+@media screen and (min-width: 816px) {
   .dashboardtile {
     width: calc((100% - 1.65rem - 12px) / 2) !important;
   }
@@ -33,6 +51,9 @@
 @media screen and (min-width: 992px) {
   .dashboardtile {
     width: calc((100% - 1.65rem - 12px) / 3) !important;
+  }
+  .dashboardtile__data {
+    font-size: 1.3rem !important;
   }
 }
 @media screen and (min-width: 1200px) {

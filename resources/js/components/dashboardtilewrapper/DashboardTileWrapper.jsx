@@ -12,7 +12,7 @@ const DashboardTileWrapper = ({
 }) => {
 
     return (
-        <ul className="dashboardtilewrapper d-flex flex-row flex-wrap p-0 justify-content-start align-items-center align-content-start">
+        <ul className="dashboardtilewrapper d-flex flex-column flex-sm-row flex-wrap m-0 p-0 justify-content-around justify-content-md-start align-items-center align-content-start">
             {items}
         </ul>
     );
