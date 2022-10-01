@@ -22,8 +22,8 @@ const RequisitionerDashboard = () => {
                 <DashboardTileWrapper
                     items={[
                         <DashboardTile label="Purchase Request" data={90} key={"foc1"} />,
-                        <DashboardTile label="foooc2" key={"foc2"}/>,
-                        <DashboardTile label="foooc3" key={"foc3"}/>,
+                        <DashboardTile label="Jon Order" data={30} key={"foc2"}/>,
+                        <DashboardTile label="foooc3" data={10} key={"foc3"}/>,
                         // <DashboardTile label="foooc" />,
                     ]}/>
             </div>
