@@ -4,11 +4,3 @@
  */
 
 
-.purchaserequestitem {
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important;
-    &:last-child {
-        border-bottom: none;
-    }
-}

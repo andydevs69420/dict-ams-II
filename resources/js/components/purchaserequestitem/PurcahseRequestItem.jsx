@@ -4,7 +4,7 @@
  */
 
 
-import React from "react";
+import React, { createRef } from "react";
 import "./style/purchaserequestitem.css";
 
 
@@ -19,10 +19,19 @@ const PurchaseRequestItem = ({
     prkey,
 }) => {
 
+    const liItem = createRef();
+
+    const onDelete = (e) => {
+        liItem.current.remove();
+    }
+
     return (
-        <li className="purchaserequestitem list-group-item p-0 rounded-0">
+        <li className="purchaserequestitem list-group-item p-0 rounded-0" ref={liItem}>
             <div className="card border-0 rounded-0">
-                <div className="card-body px-0">
+                <div className="card-header border-0 bg-transparent">
+                    <button className="btn btn-close rounded-circle float-end" onClick={onDelete}></button>
+                </div>
+                <div className="card-body">
                     <div className="container-fluid p-0">
                         <div className="row">
                             {/* stock number */}
@@ -41,7 +50,7 @@ const PurchaseRequestItem = ({
                                 <Dropdown
                                     id="unit"
                                     borderColor="#a8bdb7"
-                                    placeholder="stock number"
+                                    placeholder="select unit"
                                     children={[
                                         {id: 1, value: "inches"    },
                                         {id: 2, value: "pieces"    },

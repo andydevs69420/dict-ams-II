@@ -6,7 +6,6 @@
 import React from "react";
 import "./style/requisitoner.css";
 
-import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
 
@@ -38,7 +37,7 @@ const Requisitioner = () => {
                         },
                         "Request": {
                             icon: <i className="bi bi-list-nested text-primary"></i>,
-                            link: ["Request list"]
+                            link: ["New Request", "Request list"]
                         },
                         "Account": {
                             icon: <i className="bi bi-person-fill text-primary"></i>,
