@@ -6,13 +6,20 @@
 import React from "react";
 import "./style/dashboardtilewrapper.css";
 
+
+/**
+ * DashboardTileWrapper
+ * @param {String} id wrapper id
+ * @param {Array[JSX.Element]} items list items
+ * @return JSXElement
+ **/
 const DashboardTileWrapper = ({
     id,
     items=[],
 }) => {
 
     return (
-        <ul className="dashboardtilewrapper d-flex flex-column flex-sm-row flex-wrap m-0 p-0 justify-content-around justify-content-md-start align-items-center align-content-start">
+        <ul id={id} className="dashboardtilewrapper d-flex flex-column flex-sm-row flex-wrap m-0 p-0 justify-content-around justify-content-md-start align-items-center align-content-start">
             {items}
         </ul>
     );

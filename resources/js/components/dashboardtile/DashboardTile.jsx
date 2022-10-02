@@ -1,3 +1,4 @@
+
 /*
  *   Copyright (c) 2022 andydevs69420
  *   All rights reserved.
@@ -8,7 +9,7 @@ import "./style/dashboardtile.css";
 
 import { Doughnut } from "react-chartjs-2";
 import {Chart, ArcElement, Tooltip, Legend,} from "chart.js";
-Chart.register([Tooltip, ArcElement, Legend])
+Chart.register([Tooltip, ArcElement, Legend]);
 
 
 
@@ -16,6 +17,8 @@ Chart.register([Tooltip, ArcElement, Legend])
 /**
  * DashboardTile
  * @param {JSX.Element} icon tile icon
+ * @param {String} label tile label
+ * @param {Number} data tile data
  * @return JSXELEMENT
  **/
 const DashboardTile = ({

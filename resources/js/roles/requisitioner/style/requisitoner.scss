@@ -4,6 +4,16 @@
  */
 
 
-.requisitioner__content-area {
-    overflow: hidden !important;
+$appbar-height: 53px;
+$padding: 1rem;
+
+#requisitioner__content-area {
+    padding-top: $appbar-height;
+    overflow: hidden auto !important;
+}
+
+@media screen and (min-width: 992px) {
+    #requisitioner__content-area {
+        padding: calc($appbar-height + $padding) $padding $padding $padding;
+    }
 }

@@ -4,14 +4,17 @@
  */
 
 import React from "react";
+import "./style/requisitoner.css";
+
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import AppBar from "../../components/appbar/AppBar";
+
 
 
 /*
  | Other component
  */
+import AppBar from "../../components/appbar/AppBar";
 import Sidebar from "../../components/sidebar/Sidebar";
 
 
@@ -34,7 +37,7 @@ const Requisitioner = () => {
                             link: ["Form builder"]
                         },
                         "Request": {
-                            icon: <i className="bi bi-list text-primary"></i>,
+                            icon: <i className="bi bi-list-nested text-primary"></i>,
                             link: ["Request list"]
                         },
                         "Account": {

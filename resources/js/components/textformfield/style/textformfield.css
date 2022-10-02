@@ -27,4 +27,14 @@
 }
 .textformfield:focus {
   border-color: transparent !important;
+}
+
+input.textformfield::-webkit-outer-spin-button,
+input.textformfield::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input.textformfield[type=number] {
+  -moz-appearance: textfield;
 }/*# sourceMappingURL=textformfield.css.map */

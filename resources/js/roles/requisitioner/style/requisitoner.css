@@ -2,6 +2,13 @@
  *   Copyright (c) 2022 andydevs69420
  *   All rights reserved.
  */
-.requisitioner__content-area {
-  overflow: hidden !important;
+#requisitioner__content-area {
+  padding-top: 53px;
+  overflow: hidden auto !important;
+}
+
+@media screen and (min-width: 992px) {
+  #requisitioner__content-area {
+    padding: calc(53px + 1rem) 1rem 1rem 1rem;
+  }
 }/*# sourceMappingURL=requisitoner.css.map */

@@ -3,7 +3,7 @@
  *   All rights reserved.
  */
 
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./style/dropdown.css";
 
 
@@ -17,8 +17,9 @@ import "./style/dropdown.css";
  * @param {Number} borderWidth border around the input ex: {borderWidth}px solid color
  * @param {String} borderColor border color for input ex: {borderWidth}px solid {borderColor}
  * @param {String} placeholder input placeholder
+ * @param {String} fillColor background color
  * @param {String} value input initial value
- * @param {Array}  children list of options
+ * @param {Array[Object]}  children list of options [{id:..., value: ...}]
  * @param {Function} onChange default onchange callback
  * @returns JSXElement
  **/
@@ -68,16 +69,28 @@ const Dropdown = ({
             break;
     }
 
+    const [defaultValue, updateValue] = useState(value);
+
+    const onSelect = (e) => {
+        onChange?.call(null, e.target.value);
+        updateValue(e.target.value);
+    }
+
     return (
         <div className={"dropdown_wrapper input-group position-relative rounded " + elevate} style={{
             backgroundColor: fillColor
         }}>
-            { icon && <span className="dropdown_icon input-group-text text-muted text-center opacity-75 border-0">{icon}</span> }
-            <select id={id} className={"dropdown form-select" + form_size} name={name} onChange={onChange} placeholder={placeholder} style={{
+            <span className="dropdown_icon input-group-text text-muted text-center opacity-75 border-0">{icon}</span>
+            <select id={id} className={"dropdown form-select" + form_size} name={name} onChange={onSelect} placeholder={placeholder} style={{
                 border: `${borderWidth}px solid ${borderColor}`
-            }} defaultValue="value" required={required}>
+            }} required={required} value={defaultValue}>
+
+                {/* default */}
                 <option value="default" hidden>{placeholder}</option>
-                {children.map((e) => (<option value={e.id}>{e.value}</option>))}
+
+                {/* generate */}
+                {children.map((e) => (<option value={e.id} key={e.id}>{e.value}</option>))}
+
             </select>
         </div>
     );

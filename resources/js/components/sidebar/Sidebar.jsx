@@ -68,8 +68,8 @@ const Sidebar = ({
                                 ({isActive}) => isActive?
                                     "d-block w-100 px-2 py-1 text-decoration-none rounded-1 text-center text-dark fw-bold"
                                     :
-                                    "d-block w-100 px-2 py-1 text-decoration-none rounded-1 text-center text-muted"
-                            } style={({isActive}) => isActive?{backgroundColor: "cyan"}:undefined} to="">Dashboard</NavLink>
+                                    "d-block w-100 px-2 py-1 text-decoration-none border border-primary rounded-1 text-center text-muted"
+                            } style={({isActive}) => isActive?{backgroundColor: "cyan"}:undefined} to="/requisitioner" end>Dashboard</NavLink>
                         </li>
                     </ul>
                     {/* items */}
@@ -90,7 +90,7 @@ const Sidebar = ({
                                                             "px-2 py-1 text-decoration-none rounded-1 text-dark fw-bold"
                                                             :
                                                             "px-2 py-1 text-decoration-none rounded-1 text-muted"
-                                                    } style={({isActive}) => isActive?{backgroundColor: "cyan"}:undefined} to={link}>{link}</NavLink>
+                                                    } style={({isActive}) => isActive?{backgroundColor: "cyan"}:undefined} to={(link.toLowerCase()).replaceAll(/\s/g, "")}>{link}</NavLink>
                                                 </li>
                                             );
                                         })}

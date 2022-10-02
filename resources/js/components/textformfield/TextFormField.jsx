@@ -3,7 +3,7 @@
  *   All rights reserved.
  */
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./style/textformfield.css";
 
 
@@ -13,7 +13,6 @@ import "./style/textformfield.css";
  * @param {JSX.Element} icon input icon
  * @param {Number} elevation button elevation
  * @param {String} type input type ["text"|"email"|"password"|etc]
- * @param {String} title input title
  * @param {String} name input name
  * @param {String} size input size variant ["sm"|"md"|"lg"]
  * @param {Number} borderWidth border around the input ex: {borderWidth}px solid color
@@ -28,7 +27,6 @@ const TextFormField = ({
     icon=(<i className="bi bi-file-earmark"></i>),
     elevation=0,
     type="text",
-    title,
     name,
     size,
     borderWidth=1,
@@ -36,7 +34,7 @@ const TextFormField = ({
     placeholder="form field",
     fillColor="inherit",
     required,
-    value,
+    value="",
     onChange,
 }) => {
 
@@ -70,18 +68,21 @@ const TextFormField = ({
             break;
     }
 
-    function onTextUpdate(e) {
-        textUpdate(e.target.value);
+    const [defaultValue, valueChange] = useState(value);
+
+    const onTextChange = (e) => {
+        onChange?.call(null, e.target.value);
+        valueChange(e.target.value);
     }
 
     return (
         <div className={"textformfield_wrapper input-group position-relative rounded " + elevate} style={{
             backgroundColor: fillColor
         }}>
-            { icon && <span className="textformfield_icon input-group-text text-muted text-center opacity-75 border-0">{icon}</span> }
-            <input id={id} className={"textformfield form-control" + form_size} type={type} title={title} name={name} placeholder={placeholder} style={{
+            <span className="textformfield_icon input-group-text text-muted text-center opacity-75 border-0">{icon}</span>
+            <input id={id} className={"textformfield form-control" + form_size} type={type} name={name} placeholder={placeholder} style={{
                 border: `${borderWidth}px solid ${borderColor}`
-            }} onChange={onChange} value={value} required={required}/>
+            }} onChange={onTextChange} value={defaultValue} required={required} />
         </div>
     );
 }
