@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from "react";
-import "./style/textformfield.css";
+
 
 
 /**
@@ -13,7 +13,6 @@ import "./style/textformfield.css";
  * @param {JSX.Element} icon input icon
  * @param {Number} elevation button elevation
  * @param {String} type input type ["text"|"email"|"password"|etc]
- * @param {RegExp} pattern value pattern
  * @param {String} name input name
  * @param {String} size input size variant ["sm"|"md"|"lg"]
  * @param {Number} borderWidth border around the input ex: {borderWidth}px solid color
@@ -23,14 +22,11 @@ import "./style/textformfield.css";
  * @param {Function} onChange default onchange callback
  * @returns JSXElement
  **/
-const TextFormField = ({
+const TextArea = ({
     id,
-    icon=(<i className="bi bi-file-earmark"></i>),
     elevation=0,
     type="text",
-    pattern,
     name,
-    size,
     borderWidth=1,
     borderColor="transparent",
     placeholder="form field",
@@ -54,22 +50,6 @@ const TextFormField = ({
             break;
     }
 
-    switch(size)
-    {
-        case "sm":
-        case "SM":
-            form_size = " form-control-sm";
-            break;
-        case "md":
-        case "MD":
-            form_size = "";
-            break;
-        case "lg":
-        case "LG":
-            form_size = " form-control-lg";
-            break;
-    }
-
     const [defaultValue, valueChange] = useState(value);
 
     const onTextChange = (e) => {
@@ -81,12 +61,11 @@ const TextFormField = ({
         <div className={"textformfield_wrapper input-group position-relative rounded " + elevate} style={{
             backgroundColor: fillColor
         }}>
-            <span className="textformfield_icon input-group-text text-muted text-center opacity-75 border-0">{icon}</span>
-            <input id={id} className={"textformfield form-control" + form_size} type={type} name={name} pattern={pattern} placeholder={placeholder} style={{
+            <textarea id={id} className={"textformfield form-control" + form_size} type={type} name={name} placeholder={placeholder} style={{
                 border: `${borderWidth}px solid ${borderColor}`
-            }} onChange={onTextChange} value={defaultValue} required={required} />
+            }} rows={3} onChange={onTextChange} value={defaultValue} required={required}></textarea>
         </div>
     );
 }
 
-export default TextFormField;
+export default TextArea;

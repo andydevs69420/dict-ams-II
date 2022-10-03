@@ -83,10 +83,10 @@ const Dropdown = ({
             <span className="dropdown_icon input-group-text text-muted text-center opacity-75 border-0">{icon}</span>
             <select id={id} className={"dropdown form-select" + form_size} name={name} onChange={onSelect} placeholder={placeholder} style={{
                 border: `${borderWidth}px solid ${borderColor}`
-            }} required={required} value={defaultValue}>
+            }} required={required} value={defaultValue} defaultValue="">
 
                 {/* default */}
-                <option value="default" hidden>{placeholder}</option>
+                <option value="" disabled hidden>{placeholder}</option>
 
                 {/* generate */}
                 {children.map((e) => (<option value={e.id} key={e.id}>{e.value}</option>))}

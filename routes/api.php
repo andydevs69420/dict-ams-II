@@ -17,3 +17,30 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+/*
+ |------------
+ | Get roles |
+ |------------
+ |
+ */
+Route::get("/signup-essential", function() {
+    return json_encode([
+        "division" => \App\Models\Division::all(),
+        "office" => \App\Models\Office::all(),
+        "roles" => \App\Models\Role::all()
+    ]);
+});
+
+
+/*
+ |-----------
+ | Signup   |
+ |-----------
+ |
+ */
+Route::controller(\App\Http\Controllers\SignupController::class)->group(function() {
+    Route::post("/signup", "onSignup");
+});

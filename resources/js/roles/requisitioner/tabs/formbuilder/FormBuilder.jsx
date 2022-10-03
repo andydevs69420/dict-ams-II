@@ -11,7 +11,9 @@ import "./style/formbuilder.css";
  | Other components
  */
 import Dropdown from "../../../../components/dropdown/Dropdown";
+
 import PurchaseRequest from "../../../../components/purchaserequest/PurchaseRequest";
+import JobOrder from "../../../../components/joborder/JobOrder";
 
 const FormBuilder = () => {
 
@@ -52,9 +54,9 @@ const FormBuilder = () => {
                     <div className="col-12">
                         {
                             (formType == 1)?
-                            <PurchaseRequest isGenerated={false} />
+                            <PurchaseRequest />
                             :
-                            "yeah"
+                            <JobOrder />
                         }
                     </div>
                 </div>
