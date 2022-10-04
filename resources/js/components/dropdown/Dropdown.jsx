@@ -83,7 +83,7 @@ const Dropdown = ({
             <span className="dropdown_icon input-group-text text-muted text-center opacity-75 border-0">{icon}</span>
             <select id={id} className={"dropdown form-select" + form_size} name={name} onChange={onSelect} placeholder={placeholder} style={{
                 border: `${borderWidth}px solid ${borderColor}`
-            }} required={required} value={defaultValue} defaultValue="">
+            }} required={required} defaultValue="">
 
                 {/* default */}
                 <option value="" disabled hidden>{placeholder}</option>

@@ -12,8 +12,8 @@ import "./style/formbuilder.css";
  */
 import Dropdown from "../../../../components/dropdown/Dropdown";
 
-import PurchaseRequest from "../../../../components/purchaserequest/PurchaseRequest";
-import JobOrder from "../../../../components/joborder/JobOrder";
+import PurchaseRequest from "../../../../usercomponents/purchaserequest/PurchaseRequest";
+import JobOrder from "../../../../usercomponents/joborder/JobOrder";
 
 const FormBuilder = () => {
 

@@ -12,13 +12,6 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 
 /*
- | Page
-*/
-
-import Signin from "../page/signin/Signin";
-import Signup from "../page/signup/Signup";
-
-/*
  | Roles
  */
 import Requisitioner from "../roles/requisitioner/Requisitioner";
@@ -31,8 +24,6 @@ const App = () => {
         <Router>
             <Routes>
                 <Route path="/" index element={<h1 className="display-1">INDEX</h1>} />
-                <Route path="/signin" element={<Signin />} />
-                <Route path="/signup" element={<Signup />} />
 
                 {/* requissitioner role */}
                 <Route path="/requisitioner" element={<Requisitioner />}>

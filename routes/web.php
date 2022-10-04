@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,31 +15,56 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+Auth::routes(["verify" => true]);
+
+/*
+ |-----------------+
+ | Logout route!   |
+ |-----------------+
+ */ 
+Route::get("/logout", function() {
+    if (Auth::check()) Auth::logout();
+    return redirect()->to("/login");
+})->middleware(["auth", "verified"]);
+
+/*
+ |--------------+
+ | Role checker |
+ |--------------+
+ */ 
+Route::get("/role", function() {
+    
+    if (false);
+    // requisitioner
+    else if (Auth::user()->hasRole("Requisitioner")) 
+        return redirect()->intended("/requisitioner");
+
+    return response()->json([
+        "exist" => Auth::user()->hasRole("Focal")
+    ]);
+})->middleware(["auth", "verified"]);
+
+
+
 /*
  | Wrapper
  */
-Route::get("/{route?}", function () {
+Route::get("/{route?}", function (Request $request, $route) {
     return view("wrapper");
-})->where("route", ".*");
+})->where("route", ".*")->middleware(["auth", "verified"]);
 
 
-/*
- |----------------------
- | Get roles           |
- |----------------------
- |
- */
-Route::get("/conn/roles", function() {
-    return json_encode(\App\Models\Role::all());
-});
-
+use App\Http\Controllers\Roles\RequisitionerController;
 
 /*
- |-----------
- | Signin   |
- |-----------
- |
+ |-------------------+
+ | Requisitoner role |
+ |-------------------+
  */
-Route::controller(\App\Http\Controllers\SignupController::class)->group(function() {
-    Route::post("/conn/signup", "onSignup");
+Route::controller(RequisitionerController::class)->group(function() {
+
+    Route::get("/requisitioner/{route?}", "index");
+
 });
