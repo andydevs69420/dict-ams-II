@@ -69,7 +69,7 @@ const Sidebar = ({
                                     "d-block w-100 px-2 py-1 text-decoration-none rounded-1 text-center text-dark fw-bold"
                                     :
                                     "d-block w-100 px-2 py-1 text-decoration-none border border-primary rounded-1 text-center text-muted"
-                            } style={({isActive}) => isActive?{backgroundColor: "cyan"}:undefined} to="/requisitioner" end>Dashboard</NavLink>
+                            } style={({isActive}) => isActive?{backgroundColor: "cyan"}:undefined} to="/app/requisitioner" end>Dashboard</NavLink>
                         </li>
                     </ul>
                     {/* items */}

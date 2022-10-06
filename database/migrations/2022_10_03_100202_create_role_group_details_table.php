@@ -15,11 +15,8 @@ return new class extends Migration
     {
         Schema::create("role_group_details", function (Blueprint $table) {
             $table->id("role_group_details_id");
-            $table->bigInteger("role_id_fk")->unsigned();
-            $table->bigInteger("role_group_id_fk")->unsigned();
-
-            $table->foreign("role_id_fk")->references("role_id")->on("role");
-            $table->foreign("role_group_id_fk")->references("role_group_id")->on("role_group");
+            $table->foreignId("role_id_fk")->constrained("role", "role_id");
+            $table->foreignId("role_group_id_fk")->constrained("role_group", "role_group_id");
         });
     }
 

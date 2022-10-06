@@ -15,15 +15,10 @@ return new class extends Migration
     {
         Schema::create("user_details", function (Blueprint $table) {
             $table->id("user_details_id");
-            $table->bigInteger("user_id_fk")->unsigned();
-            $table->bigInteger("division_id_fk")->unsigned();
-            $table->bigInteger("office_id_fk")->unsigned();
-            $table->bigInteger("role_id_fk")->unsigned();
-
-            $table->foreign("user_id_fk")->references("user_id")->on("users");
-            $table->foreign("division_id_fk")->references("division_id")->on("division");
-            $table->foreign("office_id_fk")->references("office_id")->on("office");
-            $table->foreign("role_id_fk")->references("role_id")->on("role");
+            $table->foreignId("user_id_fk")->constrained("users", "user_id");
+            $table->foreignId("division_id_fk")->constrained("division", "division_id");
+            $table->foreignId("office_id_fk")->constrained("office", "office_id");
+            $table->foreignId("role_id_fk")->constrained("role", "role_id");
         });
     }
 

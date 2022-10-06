@@ -6,21 +6,66 @@
 import React, { useState } from "react";
 import "./style/formbuilder.css";
 
+import { useNavigate } from "react-router-dom";
 
 /*
  | Other components
  */
 import Dropdown from "../../../../components/dropdown/Dropdown";
-
 import PurchaseRequest from "../../../../usercomponents/purchaserequest/PurchaseRequest";
 import JobOrder from "../../../../usercomponents/joborder/JobOrder";
 
-const FormBuilder = () => {
 
+
+
+async function send(route, data, onOk, onBad)
+{
+    try {
+        let response = await axios.post(`/requisitioner/${route}`, data, {
+            headers: {
+                "content-type": "application/json"
+            }
+        });
+
+        switch(response.data.status)
+        {
+            case "ok":
+                return onOk?.call(null, response.data);
+            case "bad":
+                return onBad?.call(null, response.data);
+        }
+    } catch(err) {
+        console.error(err);
+    }
+}
+
+const FormBuilder = () => {
+    const navigate = useNavigate();
     const [formType, updateFormType] = useState(1);
 
     const onSelectType = (value) => {
         updateFormType(parseInt(value));
+    }
+
+    const savePR = (formInfo) => {
+        send("newPurchaseRequest", formInfo, (okData) => {
+            /*statement*/
+            navigate("/app/requisitioner/newrequest");
+        }, (badData) => {
+            /*statement*/
+            // TODO: add error
+        });
+    }
+
+    const saveJO = (formInfo) => {
+        send("newJobOrder", formInfo, (okData) => {
+            /*statement*/
+            console.log("Ok!", okData);
+        }, (badData) => {
+            /*statement*/
+            // TODO: add error
+            console.log("Bad!");
+        });
     }
 
     return (
@@ -54,9 +99,9 @@ const FormBuilder = () => {
                     <div className="col-12">
                         {
                             (formType == 1)?
-                            <PurchaseRequest />
+                            <PurchaseRequest onSave={savePR} />
                             :
-                            <JobOrder />
+                            <JobOrder onSave={saveJO} />
                         }
                     </div>
                 </div>

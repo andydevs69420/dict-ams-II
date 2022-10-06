@@ -12,17 +12,19 @@ class ServerResponse
         return response()->json([
             "status"  => "ok",
             "message" => $message,
-            ...$data
+            "data"    => [...$data]
         ]);
     }
 
     /**
      * Specifies fail response
      **/
-    public static function bad($message="fail!", $data=[])
+    public static function bad(String $message="success!", Array $data=[])
     {
-        $fmt = ["status" => "bad", "message" => $message];
-        $fmt = array_merge($fmt, $data);
-        return response()->json($fmt);
+        return response()->json([
+            "status"  => "bad",
+            "message" => $message,
+            "data"    => [...$data]
+        ]);
     }
 }

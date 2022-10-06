@@ -25,10 +25,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  **/
 window.$ = Object.freeze((query) => {
     let nodes = document.querySelectorAll(query);
-    // 
-    if (nodes.length === 1) return nodes[0];
+    //
+    if (nodes.length === 1) return [nodes[0]];
     else if (nodes.length <= 0)
         return undefined;
-    // 
+    //
     return [...nodes];
 });

@@ -12,31 +12,53 @@ import React, { useState, useEffect } from "react";
 import PurchaseRequestItem from "../purchaserequestitem/PurchaseRequestItem";
 import TextArea from "../../components/textarea/TextArea";
 import Dropdown from "../../components/dropdown/Dropdown";
+import axios from "axios";
 
 
 
 /**
  * PurchaseRequest
  * @param {Array[Object]} items purchase items [{stock:..., unit:..., description:...}, {...}]
+ * @param {function(object)} onSave fires when save button was clicked!
  * @returns JSXElement
  **/
 const PurchaseRequest = ({
     items = [],
+    onSave,
 }) => {
 
     const [purchaseItem, updateItem] = useState(
         items.map((e, idx) => (<PurchaseRequestItem key={idx} prkey={idx + 1} onDestroy={removeItem} />))
     );
 
-    const [person, personUpdate] = useState({
-        budgetOfficer       : null,
-        recommendingApproval: null,
+    const [personel, updatePersonel] = useState({
+        budgetOfficer       : [],
+        recommendingApproval: [],
     });
 
+    // add default item onload
     useEffect(() => {
         if (purchaseItem.length <= 0) addItem(null);
     }, []);
 
+    // get required personel
+    useEffect(async () => {
+        let bo, ra;
+        try {
+            bo = await axios.get("/requisitioner/get/role?role=Budget%20Officer");
+            ra = await axios.get("/requisitioner/get/role?role=Regional%20director");
+
+            if (bo.data.status === "ok")
+            { updatePersonel((old) => ({...old, budgetOfficer: bo.data.data})); }
+
+            if (ra.data.status === "ok")
+            { updatePersonel((old) => ({...old, recommendingApproval: ra.data.data})); }
+        } catch(err) {
+            console.error(err);
+        }
+    }, []);
+
+    // add item action
     const addItem = (e) => {
         updateItem((oldItems) => [
             ...oldItems,
@@ -45,6 +67,7 @@ const PurchaseRequest = ({
         ]);
     }
 
+    // remove item action
     const removeItem = (prkey) => {
         updateItem((old) => {
             let newArr = [... old];
@@ -56,8 +79,8 @@ const PurchaseRequest = ({
     const submit = (e) => {
         e.preventDefault();
 
-        let stock, units, qntty, unitc, total, descr, purpose;
-        
+        let stock, units, qntty, unitc, total, descr, purpose, budgetOfficer, recommendingApproval;
+
         stock = $("[name='stockno[]']"    );
         units = $("[name='unit[]']"       );
         qntty = $("[name='quantity[]']"   );
@@ -79,12 +102,16 @@ const PurchaseRequest = ({
                 description: descr[idx].value
             });
         }
-        
-        purpose = $("#purpose");
 
-        console.log({
+        purpose = $("#purpose");
+        budgetOfficer = $("#purchase__request-budgetofficer");
+        recommendingApproval = $("#purchase__request-recommending-approval");
+
+        onSave?.call(null, {
             items: formatted,
-            purpose: purpose.value
+            purpose: purpose[0].value,
+            budgetOfficer: budgetOfficer[0].value,
+            recommendingApproval: recommendingApproval[0].value
         });
     }
 
@@ -127,26 +154,32 @@ const PurchaseRequest = ({
 
                         {/* budget officer */}
                         <div className="col-12 col-md-6 my-2">
-                            {/* <label htmlFor="purchase__request-budgetofficer" className="text-muted">budget officer</label>
+                            <label htmlFor="purchase__request-budgetofficer" className="text-muted">budget officer</label>
                             <Dropdown
                                 id="purchase__request-budgetofficer"
                                 icon={<i className="bi bi-person-fill"></i>}
                                 name="budget-officer"
                                 borderColor="#a8bdb7"
                                 placeholder="budget officer"
-                                required /> */}
+                                required
+                                children={
+                                    personel.budgetOfficer?.map((bo) => ({id: bo.user_id, value: `${bo.lastname} ${bo.firstname}`}))
+                                } />
                         </div>
 
                         {/* recommending approval */}
                         <div className="col-12 col-md-6 my-2">
-                            {/* <label htmlFor="purchase__request-recommending-approval" className="text-muted">recommending approval</label>
+                            <label htmlFor="purchase__request-recommending-approval" className="text-muted">recommending approval</label>
                             <Dropdown
                                 id="purchase__request-recommending-approval"
                                 icon={<i className="bi bi-person-fill"></i>}
                                 name="recommending-approval"
                                 borderColor="#a8bdb7"
                                 placeholder="recommending approval"
-                                required /> */}
+                                required
+                                children={
+                                    personel.recommendingApproval?.map((ra) => ({id: ra.user_id, value: `${ra.lastname} ${ra.firstname}`}))
+                                } />
                         </div>
 
                         {/* generate btn */}
@@ -157,7 +190,7 @@ const PurchaseRequest = ({
                                 // add control
                                 <span className="d-inline-block rounded-1 shadow-sm float-end">
                                     <button className="btn btn-sm btn-primary px-3" type="submit">
-                                        <i className="bi bi-gear-fill"></i> GENERATE
+                                        <i className="bi bi-save"></i> Save
                                     </button>
                                 </span>
                             }

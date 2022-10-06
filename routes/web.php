@@ -23,7 +23,7 @@ Auth::routes(["verify" => true]);
  |-----------------+
  | Logout route!   |
  |-----------------+
- */ 
+ */
 Route::get("/logout", function() {
     if (Auth::check()) Auth::logout();
     return redirect()->to("/login");
@@ -33,13 +33,13 @@ Route::get("/logout", function() {
  |--------------+
  | Role checker |
  |--------------+
- */ 
+ */
 Route::get("/role", function() {
-    
+
     if (false);
     // requisitioner
-    else if (Auth::user()->hasRole("Requisitioner")) 
-        return redirect()->intended("/requisitioner");
+    else if (Auth::user()->hasRole("Requisitioner"))
+        return redirect()->intended("/app/requisitioner");
 
     return response()->json([
         "exist" => Auth::user()->hasRole("Focal")
@@ -47,13 +47,15 @@ Route::get("/role", function() {
 })->middleware(["auth", "verified"]);
 
 
-
 /*
- | Wrapper
+ |---------+
+ | Wrapper |
+ |---------+
  */
-Route::get("/{route?}", function (Request $request, $route) {
+Route::get("/app/{route?}", function (Request $request, $route) {
     return view("wrapper");
 })->where("route", ".*")->middleware(["auth", "verified"]);
+
 
 
 use App\Http\Controllers\Roles\RequisitionerController;
@@ -65,6 +67,17 @@ use App\Http\Controllers\Roles\RequisitionerController;
  */
 Route::controller(RequisitionerController::class)->group(function() {
 
-    Route::get("/requisitioner/{route?}", "index");
+    Route::post("/requisitioner/{route}", "index")
+    ->whereIn("route", [
+        "newPurchaseRequest",
+        "newJobOrder"
+    ]);
+
+    Route::get("/requisitioner/get/{data}", "getDataIndex")
+    ->whereIn("data", [
+        "role",
+        "PurchaseRequest",
+        "JobOrder"
+    ]);
 
 });

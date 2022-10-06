@@ -23,13 +23,16 @@ const App = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/" index element={<h1 className="display-1">INDEX</h1>} />
+                <Route path="/app" index element={<h1 className="display-1">INDEX</h1>} />
 
-                {/* requissitioner role */}
-                <Route path="/requisitioner" element={<Requisitioner />}>
+                {/* requisitioner role */}
+                <Route path="/app/requisitioner" element={<Requisitioner />}>
 
                     <Route index exact element={<RequisitionerDashboard />} />
+                    {/* create form */}
                     <Route path="formbuilder" exact element={<FormBuilder />} />
+                    {/* request */}
+                    <Route path="newrequest" exact element={<FormBuilder />} />
 
                 </Route>
 
